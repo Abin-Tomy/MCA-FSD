@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Example</title>
+</head>
+<body>
+    Enter first name: <input type="text" id="firstname"><br>
+    Enter second name: <input type="text" id="secondname"><br>
+    Display first name: <input type="text" id="dispfname1"><br>
+    Display second name: <input type="text" id="dispsname2"><br>
+    
+    <button id="id1">ADD ME</button><br>
+    <button id="id2">VIEW ME</button><br>
+
+    <script>
+        document.getElementById('id1').addEventListener("click", funaddtostorage);
+        document.getElementById('id2').addEventListener("click", viewstorage);
+
+        function funaddtostorage() {
+            let tempfirst = document.getElementById('firstname').value;
+            let tempsecond = document.getElementById('secondname').value;
+            let employee = {"fname": tempfirst, "lname": tempsecond};
+            let json_employee = JSON.stringify(employee);
+            localStorage.setItem('loc', json_employee);
+        }
+
+        function viewstorage() {
+            let storedData = localStorage.getItem('loc');
+            if (storedData) {
+                let employee = JSON.parse(storedData);
+                document.getElementById('dispfname1').value = employee.fname;
+                document.getElementById('dispsname2').value = employee.lname;
+            } else {
+                alert("No data found in localStorage!");
+            }
+        }
+    </script>
+</body>
+</html>

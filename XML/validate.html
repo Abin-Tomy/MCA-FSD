@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XML + XSD Validation</title>
+</head>
+<body>
+  <h2>Validate XML with XSD in Browser</h2>
+  <button onclick="validateXML()">Validate</button>
+  <pre id="output"></pre>
+
+  <script type="module">
+    import xmllint from "https://cdn.skypack.dev/xmllint-wasm";
+
+    // --- XML content ---
+    const xml = `
+    <students>
+      <student rollNo="101">
+        <name>Abin Tomy</name>
+        <age>22</age>
+        <gender>Male</gender>
+      </student>
+      <student rollNo="102">
+        <name>Rahul</name>
+        <age>23</age>
+        <gender>Male</gender>
+      </student>
+    </students>`;
+
+    // --- XSD content ---
+    const xsd = `
+    <?xml version="1.0" encoding="UTF-8"?>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="students">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="student" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="name" type="xs:string"/>
+                  <xs:element name="age" type="xs:integer"/>
+                  <xs:element name="gender">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value="Male"/>
+                        <xs:enumeration value="Female"/>
+                        <xs:enumeration value="Other"/>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+                <xs:attribute name="rollNo" type="xs:integer" use="required"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>`;
+
+    async function validateXML() {
+      const xmllintModule = await xmllint();
+      const result = xmllintModule.validateXML({ xml, schema: xsd });
+
+      const output = document.getElementById("output");
+      if (result.errors === null) {
+        output.textContent = "✅ XML is valid against XSD!";
+      } else {
+        output.textContent = "❌ Errors:\n" + result.errors.join("\n");
+      }
+    }
+  </script>
+</body>
+</html>

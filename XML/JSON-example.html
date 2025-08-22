@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Storage Without JSON</title>
+</head>
+<body>
+    <div id="button">GET JSON</div>
+
+    <script>
+        const addButton = document.getElementById("button");
+
+        addButton.addEventListener("click", addjson);
+
+        function addjson() {
+            console.log("CLICKED");
+
+            const url = 'https://gist.githubusercontent.com/Abin-Tomy/45946279247060e10bde267003865a6f/raw/data.json';
+
+
+            fetch(url)
+                .then(function(response) {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data fetched from JSON:', data);
+
+                    const output = `First Name: ${data.fname}, Last Name: ${data.lname}`;
+                    console.log(output);
+
+                    const div = document.createElement('div');
+                    div.textContent = output;
+                    document.body.appendChild(div);
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        }
+    </script>
+</body>
+</html>

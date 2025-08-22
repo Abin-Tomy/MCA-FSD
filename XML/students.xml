@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+  <student rollNo="101">
+    <name>Abin Tomy</name>
+    <age>22</age>
+    <gender>Male</gender>
+  </student>
+  <student rollNo="102">
+    <name>Rahul</name>
+    <age>23</age>
+    <gender>Male</gender>
+  </student>
+</students>
