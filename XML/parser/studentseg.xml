@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<students> 
+  <student> 
+    <name>Anju</name> 
+    <age>twenty</age> 
+    <course>MCA</course> 
+  </student> 
+  <student> 
+    <name>Rahul</name> 
+    <age>22</age> 
+    <course>MBA</course> 
+  </student> 
+</students> 

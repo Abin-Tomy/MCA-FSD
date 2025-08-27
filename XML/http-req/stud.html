@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XMLHttpRequest JSON Example</title>
+</head>
+<body>
+  <h2>Load Student Data (XMLHttpRequest)</h2>
+
+  <button onclick="loadStudents()">Show Students</button>
+  <ul id="studentList"></ul>
+
+  <script>
+    function loadStudents() {
+      var xhr = new XMLHttpRequest(); 
+      
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var students = JSON.parse(xhr.responseText); 
+
+          var output = "";
+          for (var i = 0; i < students.length; i++) {
+            output += "<li><strong>Name:</strong> " + students[i].name +
+                      " | <strong>Age:</strong> " + students[i].age +
+                      " | <strong>Course:</strong> " + students[i].course +
+                      "</li>";
+          }
+          document.getElementById("studentList").innerHTML = output;
+        }
+      };
+
+      xhr.open("GET", "students.json", true);
+
+      xhr.send();
+    }
+  </script>
+</body>
+</html>

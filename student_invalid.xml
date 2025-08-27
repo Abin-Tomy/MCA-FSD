@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<student xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="studenteg.xsd">
+    <name>Binu</name>
+    <age>twenty</age>   <!-- ❌ invalid: should be integer -->
+    <dob>05-12-2004</dob> <!-- ❌ invalid: wrong date format -->
+    <gpa>9.1</gpa>
+    <active>yes</active> <!-- ❌ invalid: should be true/false -->
+</student>

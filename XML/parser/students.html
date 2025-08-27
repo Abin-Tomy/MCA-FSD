@@ -1,0 +1,43 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>XML Traversal Example</title> 
+</head> 
+<body> 
+  <h2>Student Details (from XML)</h2> 
+  <div id="output"></div> 
+ 
+  <script> 
+    // Load XML file using Fetch 
+    fetch("studentseg.xml") 
+      .then(response => response.text()) 
+      .then(data => { 
+        // Parse XML 
+        const parser = new DOMParser(); 
+        const xmlDoc = parser.parseFromString(data, "application/xml"); 
+ 
+        // Get all <student> elements 
+        const students = xmlDoc.getElementsByTagName("student"); 
+        
+        let result = "<ul>"; 
+ 
+        // Traverse through each <student> 
+        for (let i = 0; i < students.length; i++) { 
+          const name = 
+students[i].getElementsByTagName("name")[0].textContent; 
+          const age = students[i].getElementsByTagName("age")[0].textContent; 
+          const course = 
+students[i].getElementsByTagName("course")[0].textContent; 
+ 
+          result += `<li>${name} (${age}) - ${course}</li>`; 
+        } 
+ 
+        result += "</ul>"; 
+ 
+        // Display in HTML 
+        document.getElementById("output").innerHTML = result; 
+      }); 
+  </script> 
+</body> 
+</html> 
