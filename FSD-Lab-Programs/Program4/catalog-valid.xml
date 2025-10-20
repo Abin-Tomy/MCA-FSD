@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catalog>
+  <Book isbn="9780134685991" genre="Technical">
+    <Title>Effective Java</Title>
+    <Author>Joshua Bloch</Author>
+    <Price>54.99</Price>
+    <Published>2018-01-06</Published>
+  </Book>
+  <Book isbn="9781492056355" genre="Technical">
+    <Title>Fluent Python</Title>
+    <Author>Luciano Ramalho</Author>
+    <Price>59.99</Price>
+    <Published>2022-04-26</Published>
+  </Book>
+</Catalog>

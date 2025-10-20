@@ -1,0 +1,34 @@
+<!-- Write a JavaScript program to demonstrate Form Validation and Event Handling -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Grab the form
+            const form = document.forms["myForm"];
+
+            // Attach submit event listener
+            form.addEventListener("submit", function (event) {
+                const name = form["name"].value.trim();
+                const email = form["email"].value.trim();
+
+                if (name === "" || email === "") {
+                    alert("Name and email must be filled out");
+                    event.preventDefault(); // stops form submission
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<h2>Form Validation Example</h2>
+<form name="myForm" action="/submit" method="post">
+    Name: <input type="text" name="name"><br><br>
+    Email: <input type="text" name="email"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

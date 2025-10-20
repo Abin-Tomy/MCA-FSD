@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+  <xs:element name="Catalog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Book" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" type="xs:string"/>
+              <xs:element name="Author" type="xs:string"/>
+              <xs:element name="Price" type="xs:decimal"/>
+              <xs:element name="Published" type="xs:date"/>
+            </xs:sequence>
+            <xs:attribute name="isbn" type="xs:string" use="required"/>
+            <xs:attribute name="genre" use="optional">
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Fiction"/>
+                  <xs:enumeration value="Non-Fiction"/>
+                  <xs:enumeration value="Sci-Fi"/>
+                  <xs:enumeration value="Fantasy"/>
+                  <xs:enumeration value="Technical"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

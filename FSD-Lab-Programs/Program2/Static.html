@@ -1,0 +1,124 @@
+<!-- Develop static pages for a given scenario using HTML  -->
+
+
+<!-- Here the scenario is a porfolio -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankith | Portfolio</title>
+  <!-- CSS LINK -->
+
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+</head>
+<body>
+
+  <!-- Header -->
+  <header style="position: sticky; top: 0; width: 100%; background-color: #f5f5f5; z-index: 1000;">
+    <nav style="display: flexbox; justify-content: space-evenly; align-items: center; font-size: 1.2em; padding: 1em; background-color: #f5f5f5; ; font-weight: bold;">
+      <p>
+        <a href="#home">Home</a>
+        <a href="#about" style="padding: 1em;">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" style="padding: 1em;">Contact</a>
+      </p>
+    </nav>
+  </header>
+
+  <!-- Home Scetion -->
+  <section id="home">
+    <div class="hero">
+      
+      <h1>Hi, I’m Ankith Pratheesh Menon</h1>
+      <p>— Together We Grow —</p>
+      <a href="#projects" class="btn">View My Work</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <u><h2>About Me</h2></u>
+    <p>
+      A brief introduction: <ul>
+        <li>Tech Enthusiast</li>
+        <li>Consistent Learner</li>
+        <li>Proficient Graphic Designer</li>
+        <li>Cross-Platform Mobile Application Developer</li>
+      </ul>
+    </p>
+    
+    <!-- <img src="profile.jpg" alt="Ankith"> -->
+  </section>
+
+  <!-- Project Section -->
+  <section id="projects">
+    <u><h2>Featured Projects</h2></u>
+
+    <article class="project-card">
+      <h3>Project One</h3>
+      <p>Description for project one</p>
+      <!-- <a href="link-to-project" target="_blank">Learn More</a> -->
+    </article>
+
+    <article class="project-card">
+      <h3>Project Two</h3>
+      <p>Description for project two</p>
+      <!-- <a href="link-to-project" target="_blank">Learn More</a> -->
+    </article>
+
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <u><h2>Get In Touch</h2></u>
+    <p>Feel free to drop me a message:</p>
+    <form action="#" method="post">
+      <table border="1" cellpadding="10" cellspacing="0">
+        <tr>
+          <td>
+            <label for="name">Name</label>
+          </td>
+          <td>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="email">Email</label>
+          </td>
+          <td>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="message">Message</label>
+          </td>
+          <td>
+            <textarea id="message" name="message" rows="5" placeholder="Leave a message"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit">Send</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background-color: rgb(244, 210, 255);">
+    <p>© 2025 Ankith Pratheesh Menon. All rights reserved.</p>
+    <ul class="social-links">
+      <li><a href="https://github.com/ankith5980">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yourusername">LinkedIn</a></li>
+      <li><a href="https://freelancer.com/youusername">Freelancer</a></li>
+      <!-- Other profiles can be added -->
+    </ul>
+  </footer>
+
+</body>
+</html>

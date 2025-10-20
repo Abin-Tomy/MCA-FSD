@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<student xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="studenteg.xsd">
-    <name>Anju</name>
-    <age>22</age>
-    <dob>2004-12-05</dob>
-    <gpa>8.5</gpa>
-    <active>true</active>
-</student>

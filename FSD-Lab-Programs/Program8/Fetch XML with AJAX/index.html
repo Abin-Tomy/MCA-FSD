@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AJAX XML Example</title>
+</head>
+<body>
+  <h2>Student Data (XML)</h2>
+  <ul id="studentList"></ul>
+
+  <script>
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "data.xml", true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        const xmlDoc = xhr.responseXML;
+        const students = xmlDoc.getElementsByTagName("student");
+        let output = "";
+        for (let i = 0; i < students.length; i++) {
+          const id = students[i].getElementsByTagName("id")[0].textContent;
+          const name = students[i].getElementsByTagName("name")[0].textContent;
+          const course = students[i].getElementsByTagName("course")[0].textContent;
+          output += `<li>${id} - ${name} (${course})</li>`;
+        }
+        document.getElementById("studentList").innerHTML = output;
+      }
+    };
+    xhr.send();
+  </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catalog>
+  <!-- Invalid for multiple reasons:
+       - Price has non-numeric value
+       - Published date has wrong format
+       - Missing required @isbn attribute
+       - genre value not allowed by enumeration
+  -->
+  <Book genre="Tech">
+    <Title>Broken Book</Title>
+    <Author>Anon</Author>
+    <Price>fifty</Price>
+    <Published>26-08-2025</Published>
+  </Book>
+</Catalog>

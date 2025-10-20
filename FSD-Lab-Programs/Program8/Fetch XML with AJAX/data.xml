@@ -1,0 +1,17 @@
+<students>
+  <student>
+    <id>1</id>
+    <name>Ankith</name>
+    <course>Computer Science</course>
+  </student>
+  <student>
+    <id>2</id>
+    <name>Ravi</name>
+    <course>Electronics</course>
+  </student>
+  <student>
+    <id>3</id>
+    <name>Priya</name>
+    <course>Mechanical</course>
+  </student>
+</students>

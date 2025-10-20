@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classic AJAX with JSON (GET + POST)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .user { margin: 8px 0; padding: 5px; border: 1px solid #aaa; border-radius: 4px; }
+    form { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h2>Users (AJAX + JSON)</h2>
+  <button onclick="loadUsers()">Load Users</button>
+  <div id="userList"></div>
+
+  <h3>Add User</h3>
+  <form onsubmit="addUser(event)">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="role" placeholder="Role" required>
+    <button type="submit">Submit</button>
+  </form>
+  <div id="response"></div>
+
+  <script>
+    // GET request
+    function loadUsers() {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://localhost:8000/users", true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var users = JSON.parse(xhr.responseText);
+          var list = document.getElementById("userList");
+          list.innerHTML = "";
+          for (var i = 0; i < users.length; i++) {
+            var div = document.createElement("div");
+            div.className = "user";
+            div.innerHTML = "<b>" + users[i].name + "</b> - " + users[i].role;
+            list.appendChild(div);
+          }
+        }
+      };
+      xhr.send();
+    }
+
+    // POST request
+    function addUser(event) {
+      event.preventDefault();
+      var name = document.getElementById("name").value;
+      var role = document.getElementById("role").value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "http://localhost:8000/add-user", true);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          var res = JSON.parse(xhr.responseText);
+          document.getElementById("response").innerText =
+            "Server response: " + JSON.stringify(res);
+        }
+      };
+
+      var user = { name: name, role: role };
+      xhr.send(JSON.stringify(user));
+    }
+  </script>
+</body>
+</html>
