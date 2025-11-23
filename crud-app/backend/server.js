@@ -29,9 +29,9 @@ db.connect(err => {
 // CREATE - Add new user
 app.post('/users', (req, res) => {
   const { name, email } = req.body;
-  db.query('INSERT INTO users (name, email) VALUES (?, ?)', [name, email], (err, result) => {
+  db.query('INSERT INTO users (name, email) VALUES (?, ?)', [name, email], (err) => {
     if (err) return res.status(500).send(err);
-    res.status(201).send({ message: 'User added', id: result.insertId });
+    res.status(201).send({ message: 'User added'});
   });
 });
 
@@ -61,4 +61,4 @@ app.delete('/users/:id', (req, res) => {
 });
 
 // Start server
-app.listen(5000, () => console.log('Server running on http://localhost:5000'));
+app.listen(5000, () => console.log('Server running'));
