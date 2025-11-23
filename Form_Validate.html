@@ -1,0 +1,47 @@
+<!-- 4. Write a JavaScript program to demonstrate Form Validation and Event Handling -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.forms["myForm"];
+
+            form.addEventListener("submit", function (event) {
+                // Stop the form from submitting by default
+                event.preventDefault();
+
+                const name = form["name"].value.trim();
+                const email = form["email"].value.trim();
+                
+                // A simple regex for email validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (name === "") {
+                    alert("Name must be filled out");
+                } else if (email === "") {
+                    alert("Email must be filled out");
+                } else if (!emailPattern.test(email)) {
+                    // Test the email against the regex pattern
+                    alert("Please enter a valid email address");
+                } else {
+                    // If all checks pass, show a success message
+                    alert("Form submitted successfully!");
+                    // In a real application, you would now submit the form, e.g., form.submit();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<h2>Form Validation Example</h2>
+<form name="myForm" action="#" method="post">
+    Name: <input type="text" name="name"><br><br>
+    Email: <input type="text" name="email"><br><br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

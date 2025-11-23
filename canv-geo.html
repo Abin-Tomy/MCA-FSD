@@ -1,0 +1,45 @@
+<!-- 2. Demonstrate Geolocation and Canvas using HTML5 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo-Location and Canvas</title>
+</head>
+
+<body>
+    <h1>GeoLocation Demo</h1>
+    <button onclick="getLocation()">Get My Location</button>
+    <p id="locationOutput">Click the button to get my Location</p>
+
+    <h1>Canvas</h1>
+    <canvas id="myCanvas" width="300" height="200" style="border:1px solid black;"></canvas>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                document.getElementById("locationOutput").innerHtml = "Geolocation is not supported by the browser.";
+            }
+        }
+        
+        function showPosition(position) {
+            document.getElementById("locationOutput").innerHTML = 
+                "Lattitude: "+ position.coords.latitude +
+                "<br>Longitude: " + position.coords.longitude;
+        }
+
+        function showError(error) {
+            document.getElementById("locationOutput").innerHTML = "Unable to retrieve location.";
+        }
+
+        //canvas
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "red";
+        ctx.fillRect(50, 50, 100, 100);
+    </script>
+</body>
+</html>
