@@ -5,7 +5,7 @@ async function demoFS() {
     // 1️⃣ Create and write to a file
     await fs.writeFile('example.txt', 'Hello, Node.js File System!');
     console.log('File created and data written successfully.');
-
+   
     // 2️⃣ Read the file
     const data = await fs.readFile('example.txt', 'utf8');
     console.log('File content:', data);

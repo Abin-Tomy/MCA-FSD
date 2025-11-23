@@ -1,0 +1,38 @@
+backend folder:
+
+npm init -y
+
+npm install express mysql cors
+
+create server.js file
+
+frontend:
+
+npx create-react-app frontend
+
+cd frontend
+
+npm install axios
+
+# Start backend
+cd backend
+node server.js
+
+# Start frontend
+cd frontend
+npm start
+
+go to xampp > start apache, mysql > open xamp shell > type command mysql -u root
+
+CREATE DATABASE testdb;
+
+USE testdb;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+
+
+
